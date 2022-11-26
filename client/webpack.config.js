@@ -36,7 +36,7 @@ module.exports = () => {
       }),
       new InjectManifest({
         swSrc: './src-sw.js',
-        swDest: 'webpack.config.js',
+        swDest: 'service-worker.js',
       }), 
     ],
 
