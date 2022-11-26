@@ -6,7 +6,6 @@ let deferred;
 window.addEventListener('beforeinstallprompt', (event) => {
     event.preventDefault();
     deferred = event;
-
     butInstall.classList.toggle('hidden', false)
 });
 
@@ -15,16 +14,13 @@ butInstall.addEventListener('click', async (event) => {
     if (!deferred) {
         return;
     }
-
-    window.deferredPrompt.prompt ();
-
+    window.deferredPrompt.prompt();
     deferred = null;
-
     butInstall.classList.toggle('hidden', true)
-   
 });
 
 // TODO: Add an handler for the `appinstalled` event
 window.addEventListener('appinstalled', (event) => {
+    window.deferredPrompt = null;
     alert("Thank you for downloading JATE");
 });
